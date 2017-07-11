@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+(1..5).each do |n|
+  List.create(name: "list#{n}")
+end
+
+List.all.each do |l|
+  (1..5).each do |n|
+    Task.create(name: "Task #{n} of list #{l.id}", list: l)
+  end
+end
